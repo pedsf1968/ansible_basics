@@ -1,0 +1,12 @@
+---
+- name: "Request in database"
+  hosts: centos-mariadb
+  gather_facts: no
+  tasks:
+    - name: "MediaWiki page count"
+      count_page:
+        db_name: "mediawiki"
+        request: "select count(*) from page;"
+      register: resultat
+    - debug: var=resultat
+...

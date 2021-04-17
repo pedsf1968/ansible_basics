@@ -1,0 +1,15 @@
+---
+
+# MariaDB server packet install and Python extension
+- name: "mariadb-server install"
+  yum:
+    name: "mariadb-server,python3-PyMySQL"
+    state: "installed"
+
+# MariaDB activation
+- name: "start MariaDB service"
+  service:
+    name: "mariadb"
+    state: "started"
+    enable: yes
+...

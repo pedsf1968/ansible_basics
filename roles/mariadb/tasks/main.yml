@@ -1,0 +1,14 @@
+---
+
+# MariaDB server installation with Python
+- name: "mariadb-server installation"
+  yum:
+    name:  "mariadb-server,python3-mysqlclient"
+    state: "installed"
+
+# MariaDB activation 
+- name: "start mariadb service"
+  service:
+    name:  "mariadb"
+    state: "started"
+    enabled: yes

@@ -1,0 +1,19 @@
+---
+
+#1. Apache (httpd) install with yum module
+- name: "apache installation"
+  yum:
+    name: "httpd"
+    state: "present"
+
+#2. Apache service activation
+- name: "apache service activation"
+  service:
+    name: "httpd"
+    state: "started"
+    enabled: yes
+
+#3. Install PHP module if php_install var is true
+- name: "install php7 packages"
+  include: "php7-install.yml"
+  when: php_install|default(False)|bool

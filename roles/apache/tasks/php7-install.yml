@@ -1,0 +1,29 @@
+---
+
+#1. EPEL repository installation (Extra Packages for Enterprise Linux)
+- name: "epel activation"
+  yum:
+    name: "epel-release"
+    state: present
+
+#2. EPEL repository installation for PHP7 package
+- name: "epel repo activation"
+  yum:
+    name: "https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm"
+    state: present
+
+#3. REMI repository installation for PHP7 package
+- name: "remi repo activation"
+  yum:
+    name: "https://rpms.remirepo.net/enterprise/remi-release-8.rpm"
+    state: present
+
+#4. PHP7 installation with extensions
+- name: "install php70 packages"
+  yum:
+    name: "php","php-json","php-mysqlnd","php-xml","php-mbstring","php-gd","php-intl","php-mcrypt"
+    state: latest
+    enablerepo: "remi-php70"
+  changed_when: yes
+  notify: [ "apache restart" ]
+...
