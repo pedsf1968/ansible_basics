@@ -20,6 +20,9 @@ create user user-ansible
 
 # Execution
 On ansible server with user user-ansible launch playbooks
+
 ansible-playbook -i inventaire.ini --user user-ansible --become --ask-become-pass install-apache.yml
+
 ansible-playbook -i inventaire.ini --user user-ansible --become --ask-become-pass install-mariadb.yml
+
 ansible-playbook -i inventaire.ini --user user-ansible --become --ask-become-pass install-mediawiki.yml
