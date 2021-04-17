@@ -25,4 +25,4 @@ ansible-playbook -i inventaire.ini --user user-ansible --become --ask-become-pas
 
 ansible-playbook -i inventaire.ini --user user-ansible --become --ask-become-pass install-mariadb.yml
 
-ansible-playbook -i inventaire.ini --user user-ansible --become --ask-become-pass install-mediawiki.yml
+ansible-playbook -i inventaire.ini --user user-ansible --become --ask-become-pass --ask-vault-pass --install-mediawiki.yml
